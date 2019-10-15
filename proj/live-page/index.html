@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/style.css">
+
+    <link rel="stylesheet" href="styles/style-media.css">
+</head>
+
+<body>
+
+    <div class="screen" onclick="toggleMenu()"></div>
+    <div class="second-screen"></div>
+
+    <header class="main-header">
+        <div class="container flex space-between align-center">
+            <div class="logo">Blogin<span>.</span></div>
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="main-nav flex clean-list">
+                <li class="flex justify-center" onmouseleave="removeSubHeader()">
+                    <a href="#" onclick="toggleSubHeader()" onmouseenter="addSubHeader()">Journal</a>
+                    <section class="sub-header">
+                        <ul class="clean-list">
+                            <li>Oktober 2016</li>
+                            <li>January 2017</li>
+                            <li>April 2017</li>
+                            <li>July 2017 </li>
+                        </ul>
+                    </section>
+                </li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Work</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+
+    <main class="card-container container border">
+        <section class="card flex">
+            <img class="card-image block" src="img/Layer_2.png">
+            <div class="card-content">
+                <h2>Duis aute irure dolor in
+                    henderit in voluptate.</h2>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo
+                    doconsequat, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur...
+                </p>
+                <button onclick="toggleContent()">Continue Reading</button>
+            </div>
+            <div class="more-content">
+                <h3>Join us to get access to the latest stories</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis dolores eaque cum cupiditate quo at,
+                    officia porro corporis. Consequatur harum a unde quae sunt iusto veniam enim, consectetur sed.</p>
+                <form class="form">
+                    <input type="email" class="form__field" placeholder="Your E-Mail Address" />
+                    <button class="content-btn">Submit</button>
+                    <button class="content-btn" onclick="toggleContent()">Close</button>
+                </form>
+            </div>
+        </section>
+        <section class="card flex">
+            <img class="card-image block" src="img/Layer_3.png">
+            <div class="card-content">
+                <h2>Duis aute irure dolor in
+                    henderit in voluptate.</h2>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo
+                    doconsequat, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur...
+                </p>
+                <button onclick="toggleContent()">Continue Reading</button>
+            </div>
+        </section>
+        <section class="card flex p-bottom">
+            <img class="card-image block" src="img/Layer_4.png">
+            <div class="card-content">
+                <h2>Duis aute irure dolor in
+                    henderit in voluptate.</h2>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commo
+                    doconsequat, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur...
+                </p>
+                <button onclick="toggleContent()">Continue Reading</button>
+            </div>
+        </section>
+        <div class="paging container flex space-between">
+            <button class="paging-bt"><strong> ← PREVIOUS</strong></button>
+            <button class="paging-bt"><strong>NEXT →</strong></button>
+        </div>
+    </main>
+
+    <footer>
+        <h2 class="logo">Blogin<span>.</span></h2>
+        <small>© 2014 Blogin.com - All Rights Reserved - Find more free Templates at Pixelhint.com</small>
+        <div class=" m-top footer-links flex ">
+            <button><img src="img/F.png"></button>
+            <button><img src="img/L.png"></button>
+            <button><img src="img/E.png"></button>
+            <button><img src="img/D.png"></button>
+        </div>
+    </footer>
+
+    <script>
+
+        var gIsShownSubHead = false;
+
+        var elMenu = document.querySelector('.main-nav');
+        function toggleMenu() {
+            document.body.classList.toggle('open-menu');
+            if(gIsShownSubHead) toggleSubHeader();
+        }
+
+        var elContent = document.querySelector('.more-content');
+        function toggleContent() {
+            elContent.classList.toggle('visible');
+            document.querySelector('.second-screen').classList.toggle('visible');
+        }
+
+        function addSubHeader() {
+            if (checkScreenResize())
+                document.querySelector('.sub-header').classList.add('effect');
+        }
+
+        function removeSubHeader() {
+            if (checkScreenResize())
+                document.querySelector('.sub-header').classList.remove('effect');
+        }
+
+        function toggleSubHeader() {
+            if (!checkScreenResize())
+                document.querySelector('.sub-header').classList.toggle('effect');
+            gIsShownSubHead = !gIsShownSubHead;
+        }
+
+
+        function checkScreenResize() {
+            var width = parseInt(window.innerWidth);
+            if (width <= 600) return false;
+            return true;
+        }
+
+
+    </script>
+</body>
+
+</html>
