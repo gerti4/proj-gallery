@@ -770,6 +770,11 @@ fieldset[disabled] .btn-xl:hover {
 
 
 /*-----------------*/
+.page-nav{
+    max-width: 100%;
+    justify-content: center;
+}
+
 .proj-nav{
     align-self: center;
     border-style: none;
